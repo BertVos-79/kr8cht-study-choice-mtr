@@ -1,5 +1,5 @@
 # Overall Leaderboard Report
-_Generated: 2025-10-17 19:02:04_
+_Generated: 2025-10-21 12:39:47_
 
 ## TOP-20
 ```text
@@ -474,3 +474,9 @@ _Generated: 2025-10-17 19:02:04_
 **Per-family RRMSE boxplot**
 
 ![Per-family RRMSE boxplot](../../outputs/r_1_overall/plots/rrmse_boxplot_by_family.png)
+
+**Critical difference — approaches**
+
+![CD diagram (approaches)](../../outputs/r_1_overall/plots/cd_approaches.png)
+
+_Associated statistics written to `outputs/r_1_overall/tables/`: `cd_approaches_median.csv`, `cd_approaches_nemenyi_p.csv` (when applicable), `cd_approaches_wilcoxon_raw_p.csv`, `cd_approaches_wilcoxon_holm_p.csv`, `cd_approaches_cliffs_delta.csv`._

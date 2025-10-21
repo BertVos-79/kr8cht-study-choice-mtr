@@ -1,0 +1,8 @@
+,static + MTR,frozen token mean + MTR,frozen token max + MTR,frozen token cls + MTR,frozen sentence + MTR,fine-tuned LoRA,augmented
+static + MTR,1.0,-0.089,-0.258,-0.358,0.312,-0.516,0.455
+frozen token mean + MTR,0.089,1.0,-0.194,-0.325,0.434,-0.573,0.57
+frozen token max + MTR,0.258,0.194,1.0,-0.137,0.567,-0.39,0.678
+frozen token cls + MTR,0.358,0.325,0.137,1.0,0.635,-0.26,0.735
+frozen sentence + MTR,-0.312,-0.434,-0.567,-0.635,1.0,-0.722,0.196
+fine-tuned LoRA,0.516,0.573,0.39,0.26,0.722,1.0,0.832
+augmented,-0.455,-0.57,-0.678,-0.735,-0.196,-0.832,1.0

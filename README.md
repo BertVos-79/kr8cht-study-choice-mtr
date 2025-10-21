@@ -81,10 +81,15 @@ An **RRMSE < 1** indicates improvement over the mean baseline.
 
 ---
 
-## 4. Overall leaderboard (Top-20)
+## 4. Results at a glance (Top-20 + approach-level CD)
 
-Ranked by **global median RRMSE** (lower is better) across folds × targets. Columns:  
-1) **Rank**, 2) **Family**, 3) **Embedding**, 4) **MTR model**, 5) **Teacher** (label source), 6) **Augm.** (`NA` or `A{10|20|50|100|200|400}`), 7) **RRMSE**.
+Two complementary views:
+- **Top-20 leaderboard** — best single configurations by *global median RRMSE* (lower is better) across folds × targets.
+- **Critical-difference (CD) diagram** — relative performance and significance **across 181 models grouped into 7 approaches**
+
+
+### Overall leaderboard (Top-20)
+Columns:  1) *Rank*, 2) *Family*, 3) *Embedding*, 4) *MTR model*, 5) *Teacher* (label source), 6) *Augm.* (`NA` or `A{10|20|50|100|200|400}`), 7) *RRMSE*.
 
 ```text
 ┏━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━┓
@@ -132,10 +137,20 @@ Ranked by **global median RRMSE** (lower is better) across folds × targets. Col
 ┗━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━┻━━━━━━━━┛
 
 ```
+<sub>_Tie-breaks:_ rrmse → family label → embedding (A–Z) → model (A–Z) → **teacher (A–Z)** → augmentation (NA before A10…A400).</sub>
+
+
+### Approach-level critical-difference (181 models → 7 approaches)
+Aligned Friedman + Nemenyi; lower ranks = better.
+
+![Critical difference — approaches](outputs/r_1_overall/plots/cd_approaches.png)
+
+- Augmented is the best approach, with no significant difference vs. frozen sentence + MTR.
+- Both outperform static + MTR and frozen token mean + MTR.
+- A third, clearly worse tier comprises token-level pooling families, with fine-tuned LoRA the worst overall.
 
 **Full report (all configurations):** `reports/leaderboard/leaderboard.md`  
-**Tables/plots powering this section:** `outputs/r_1_overall/results/*.csv`, `outputs/r_1_overall/plots/*.png`  
-<sub>_Tie-breaks:_ rrmse → family label → embedding (A–Z) → model (A–Z) → **teacher (A–Z)** → augmentation (NA before A10…A400).</sub>
+**Tables/plots powering this section:** `outputs/r_1_overall/results/*.csv`, `outputs/r_1_overall/plots/*.png`, `outputs/r_1_overall/tables/`
 
 ---
 

@@ -1,0 +1,8 @@
+,median_rrmse
+static + MTR,0.8940589403973924
+frozen token mean + MTR,0.9189352157605465
+frozen token max + MTR,0.9414069274410817
+frozen token cls + MTR,0.9664123760581923
+frozen sentence + MTR,0.7855939354838024
+fine-tuned LoRA,0.9874178100187541
+augmented,0.7326604833503585
