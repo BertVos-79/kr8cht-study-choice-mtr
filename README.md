@@ -1,7 +1,7 @@
-# kr8cht_review_anonymous
+# kr8cht-study-choice-mtr
 
 **Investigating study choice in Flemish schools with multi-target regression (MTR) on Dutch text.**  
-This repository evaluates text representation and multi-target regression strategies for predicting fourteen continuous targets from Dutch activity descriptions in the Kr8cht educational guidance game. The targets comprise eight curricular domains and six RIASEC personality traits. The dataset contains ninety-six expert-annotated activities with target scores in the range −6 to +6.
+This repository evaluates text representation and multi-target regression strategies for predicting fourteen continuous targets from Dutch activity descriptions in the Kr8cht educational guidance game. The targets comprise eight curricular domains and six RIASEC personality traits. The dataset contains ninety-six expert-annotated activities with target scores in the range −6 to +6. This public release accompanies the paper accepted for the ACM Symposium on Applied Computing (SAC 2026), Artificial Intelligence for Education (AIED) track.
 
 ## Table of Contents
 - [1. Scope and problem definition](#1-scope-and-problem-definition)
@@ -9,7 +9,7 @@ This repository evaluates text representation and multi-target regression strate
 - [3. Methods & representations](#3-methods--representations)
 - [4. Overall leaderboard (Top-20)](#4-overall-leaderboard-top-20)
 - [5. Repository map](#5-repository-map)
-- [6. What’s included in this review package](#6-whats-included-in-this-review-package)
+- [6. What’s included](#6-whats-included)
 - [7. Artifacts at a glance](#7-artifacts-at-a-glance)
 - [8. Quick start](#8-quick-start)
 - [9. Modes & idempotency](#9-modes--idempotency)
@@ -44,7 +44,7 @@ An **RRMSE < 1** indicates improvement over the mean baseline.
 - `word2vec_costoo.bin` (Coosto Dutch Word2Vec)
 - `cc.nl.300.bin.gz` (FastText Common Crawl Dutch)
 
-**Data availability.** The **raw dataset cannot be shared** and is **not included**. All review computations are derived from **precomputed artifacts** in `outputs/`, and notebooks/scripts are designed to **load these idempotently**.
+**Data availability.** The **raw dataset cannot be shared** and is **not included**. All public computations in this repository are derived from **precomputed artifacts** in `outputs/`, and notebooks/scripts are designed to **load these idempotently**.
 
 ---
 
@@ -170,13 +170,13 @@ Aligned Friedman + Nemenyi; lower ranks = better.
 - **outputs/r_1_overall/** – CSVs and plots for the leaderboard (`results/top20.csv`, `results/full_leaderboard.csv`).
 - **scripts/r_1_overall_leaderboard.py** – Aggregates artifacts and writes the leaderboard tables/plots/report.
 
-> **Note:** There is **no `src/` package**; code lives in notebooks and `scripts/` by design for clarity during review.
+> **Note:** There is **no `src/` package**; code lives in notebooks and `scripts/` by design for clarity and transparency.
 
 ---
 
-## 6. What’s included in this review package
+## 6. What’s included
 
-This repository includes all **code**, **environment specs**, and the **artifacts required to re-render every figure and table** in review mode, without access to private data. In particular, we keep:
+This repository includes all **code**, **environment specs**, and the **artifacts required to re-render every figure and table** in artifact-only mode (no raw data), without access to private data. In particular, we keep:
 - A/B/D LOOCV arrays used across the F-steps,
 - augmentation finals and caches needed for downstream steps (e.g., `facet_pools/*.txt`, `g_raw_gemma.jsonl`,
   `e_2_teacher_labeling/cache/synth_embeds/*`, and `e_3_student_scoring/cache/X_seed_e5_base.npy`),
@@ -203,16 +203,16 @@ see **ARTIFACTS_MANIFEST.md** in the repo root.
 
 ## 8. Quick start
 
-**Environment (CPU-only is fine for review):**
+**Environment (CPU-only is fine):**
 ```bash
-conda create -n kr8cht_review_anonymous python=3.11 -y
-conda activate kr8cht_review_anonymous
-conda env update -n kr8cht_review_anonymous -f envs/environment.yml
+conda create -n kr8cht-study-choice-mtr python=3.11 -y
+conda activate kr8cht-study-choice-mtr
+conda env update -n kr8cht-study-choice-mtr -f envs/environment.yml
 ```
 
 **Re-run:**
 
-- **Interactive (recommended):** open JupyterLab and run each notebook with the `kr8cht_review_anonymous` kernel.
+- **Interactive (recommended):** open JupyterLab and run each notebook with the `kr8cht-study-choice-mtr` kernel.
 - **Batch (shell):**
 ```bash
 bash scripts/run_all.sh          # continues on errors; logs to ./logs
@@ -238,7 +238,7 @@ REVIEW_MODE = False   # full compute, requires data/models
 
 If a notebook has no explicit toggle, it is review-only and consumes committed artifacts.
 For **f_6_target_analysis** Part B, use:
-export FORCE_REBUILD_PART_B=1   # recompute diagnostics from ./data; omit for review
+export FORCE_REBUILD_PART_B=1   # recompute diagnostics from ./data; omit for artifact-only
 ```
 
 **Definition of modes**  
@@ -310,17 +310,20 @@ Each corresponding notebook in `notebooks/` regenerates the figures/tables from 
 - **Taxonomy-guided prompting:** `docs/taxonomy-guided-prompting.md`  
   Visuals and Mermaid sources in `docs/trees/`, render helper in `docs/scripts/render_trees.sh`.
 
-**Preprint:** link to be added upon acceptance (kept anonymous during review).
+**Paper:** Accepted for the ACM/SIGAPP Symposium on Applied Computing (SAC 2026), Artificial Intelligence for Education (AIED) track, Thessaloniki, March 23–27, 2026. Official proceedings link/DOI will be added upon publication.
 
 ---
 
 ## 13. License & citation
 
 - **Code license:** Apache License 2.0 — see **[LICENSE](LICENSE)**.  
-- **Citation:** see **[CITATION.cff](CITATION.cff)** (placeholder; final metadata added post-acceptance).
+- **Citation:** see **[CITATION.cff](CITATION.cff)** The citation entry will be updated with the final proceedings metadata once the ACM record is available.
 
 ---
 
 ## 14. Contact
 
-Omitted for double-blind review. Please use the conference/journal review channel.
+- Bert Vos — Department of Translation, Interpreting and Communication, LT3 — Language and Translation Technology Team, Ghent University, Ghent, Belgium — bert.vos@ugent.be
+- Felipe Kenji Nakano — ITEC, imec research group at KU Leuven; Department of Public Health and Primary Care, KU Leuven, Campus Kulak, Kortrijk, Belgium — felipekenji.nakano@kuleuven.be
+- Céline Vens — ITEC, imec research group at KU Leuven; Department of Public Health and Primary Care, KU Leuven, Campus Kulak, Kortrijk, Belgium — celine.vens@kuleuven.be
+- Alireza Gharahighehi — ITEC, imec research group at KU Leuven; Department of Public Health and Primary Care, KU Leuven, Campus Kulak, Kortrijk, Belgium — alireza.gharahighehi@kuleuven.be

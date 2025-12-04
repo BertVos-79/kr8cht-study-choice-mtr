@@ -1,5 +1,5 @@
 # environment.cuda.yml
-name: kr8cht_review_anonymous
+name: kr8cht-study-choice-mtr
 channels:
   - pytorch
   - nvidia

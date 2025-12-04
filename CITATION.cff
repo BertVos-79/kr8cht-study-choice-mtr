@@ -1,23 +1,46 @@
 cff-version: 1.2.0
 message: >-
-  This repository is anonymized for peer review. Please cite the
-  corresponding article once available; replace the placeholder
-  metadata below upon acceptance.
+  If you use this code or its results, please cite the accompanying SAC 2026
+  paper listed under `preferred-citation`. Replace the DOI and proceedings URL
+  placeholders once available.
 title: "Investigating study choice in Flemish Schools: An application of multi-target regression and large language models"
 type: software
-version: 0.1.0-anon
-date-released: 2025-10-14
+version: 1.0.0
+date-released: 2025-12-04
 authors:
-  - name: "Anonymous"
+  - given-names: "Bert"
+    family-names: "Vos"
+    affiliation: "LT3 — Language and Translation Technology Team, Department of Translation, Interpreting and Communication, Ghent University, Ghent, Belgium"
+    email: "bert.vos@ugent.be"
+  - given-names: "Felipe Kenji"
+    family-names: "Nakano"
+    affiliation: "ITEC, imec research group at KU Leuven; Department of Public Health and Primary Care, KU Leuven, Campus Kulak, Kortrijk, Belgium"
+    email: "felipekenji.nakano@kuleuven.be"
+  - given-names: "Céline"
+    family-names: "Vens"
+    affiliation: "ITEC, imec research group at KU Leuven; Department of Public Health and Primary Care, KU Leuven, Campus Kulak, Kortrijk, Belgium"
+    email: "celine.vens@kuleuven.be"
+  - given-names: "Alireza"
+    family-names: "Gharahighehi"
+    affiliation: "ITEC, imec research group at KU Leuven; Department of Public Health and Primary Care, KU Leuven, Campus Kulak, Kortrijk, Belgium"
+    email: "alireza.gharahighehi@kuleuven.be"
 license: Apache-2.0
+repository-code: "https://github.com/BertVos-79/kr8cht-study-choice-mtr"
 preferred-citation:
-  type: article
+  type: conference-paper
   title: "Investigating study choice in Flemish Schools: An application of multi-target regression and large language models"
   authors:
-    - name: "Anonymous"
-  journal: "TBD"
+    - given-names: "Bert"
+      family-names: "Vos"
+    - given-names: "Felipe Kenji"
+      family-names: "Nakano"
+    - given-names: "Céline"
+      family-names: "Vens"
+    - given-names: "Alireza"
+      family-names: "Gharahighehi"
+  collection-title: "Proceedings of the 41st ACM/SIGAPP Symposium on Applied Computing (SAC '26)"
+  conference: "Artificial Intelligence for Education (AIED) track, Thessaloniki, Greece, March 23–27, 2026"
+  publisher: "ACM"
   year: 2026
-  start: 1
-  end: 14
   doi: "TBD"
-repository-code: "TBD (to be filled after de-anonymization)"
+  url: "TBD"

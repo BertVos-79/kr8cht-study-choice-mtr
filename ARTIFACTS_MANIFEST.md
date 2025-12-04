@@ -1,9 +1,9 @@
-# ARTIFACTS_MANIFEST (Review Package)
+# ARTIFACTS_MANIFEST (Public Release)
 
-This manifest lists **what is included** in the public review repository and **what is intentionally omitted**, so
-reviewers can understand exactly which artifacts the notebooks/scripts consume in review mode.
+This manifest lists **what is included** in the public repository and **what is intentionally omitted**, so
+users can understand exactly which artifacts the notebooks/scripts consume in artifact-only mode.
 
-- Repository: `kr8cht_review_anonymous`
+- Repository: `kr8cht-study-choice-mtr`
 - Purpose: enable full **review-mode** re-runs (no private data), regenerating **all figures/tables** from committed artifacts.
 - See also: `README.md` (project overview) and `REPRODUCIBILITY.md` (how to run).
 
@@ -19,11 +19,11 @@ reviewers can understand exactly which artifacts the notebooks/scripts consume i
 - `docs/**` — documentation, Mermaid sources, exported SVG/PNG assets, and `docs/data/**` taxonomy files.
 
 ### Outputs — Step A (static embeddings)
-- `outputs/a_static/results/*_loocv_rrmse.npy` — **required** for review.
+- `outputs/a_static/results/*_loocv_rrmse.npy` — **required** for for artifact-only reproduction.
 - `outputs/a_static/{plots,results}/*` — figures and stats used downstream.
 
 ### Outputs — Step B (frozen transformers)
-- `outputs/b_frozen/results/*_loocv_rrmse.npy` — **required** for review.
+- `outputs/b_frozen/results/*_loocv_rrmse.npy` — **required** for for artifact-only reproduction.
 - `outputs/b_frozen/{plots,results}/*` — figures and stats used downstream.
 
 ### Outputs — Step C (interim report)
@@ -86,7 +86,7 @@ These omissions do **not** affect review-mode runs; all notebooks/scripts read t
   ```bash
   export FORCE_REBUILD_PART_B=1
   ```
-- **Fine-tuned comparisons (F4)** rely on `outputs/d_fine_tuned/results/partial_ft_*_loocv_rrmse.npy`. No training is required in review.
+- **Fine-tuned comparisons (F4)** rely on `outputs/d_fine_tuned/results/partial_ft_*_loocv_rrmse.npy`. No training is required in artifact-only mode.
 
 ---
 

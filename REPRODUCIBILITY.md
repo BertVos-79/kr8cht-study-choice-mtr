@@ -1,6 +1,6 @@
 # REPRODUCIBILITY
 
-This document explains how to recreate the environment and re-execute the notebooks/scripts in **`kr8cht_review_anonymous`**.
+This document explains how to recreate the environment and re-execute the notebooks/scripts in **`kr8cht-study-choice-mtr`**.
 
 > **Scope.** Two environment files are provided:
 > - `envs/environment.yml` (CPU, default)
@@ -22,7 +22,7 @@ This document explains how to recreate the environment and re-execute the notebo
 ## 2) Repository Layout (top level)
 
 ```
-kr8cht_review_anonymous/
+kr8cht-study-choice-mtr/
 ├── CITATION.cff
 ├── config/
 ├── docs/
@@ -39,7 +39,7 @@ kr8cht_review_anonymous/
 ```
 
 > **Included artifacts manifest.**  
-> The exact list of committed artifacts used by the notebooks in **review mode**
+> The exact list of committed artifacts used by the notebooks in **artifact-only mode**
 > is documented in **ARTIFACTS_MANIFEST.md** (repo root). If an expected file is
 > missing locally, consult that manifest first to confirm it should be present.
 
@@ -47,16 +47,15 @@ kr8cht_review_anonymous/
 
 ## 3) Obtain the Sources
 
-The anonymized repository is available at:
-<https://anonymous.4open.science/r/kr8cht_review_anonymous/>
-
-1) Click **Download Repository** to get a ZIP.  
-2) Unzip and enter the folder:
+The repository is available at:
 
 ```bash
-cd ~/Downloads
-unzip kr8cht_review_anonymous*.zip
-cd kr8cht_review_anonymous*/
+# HTTPS
+git clone https://github.com/BertVos-79/kr8cht-study-choice-mtr
+# or SSH
+git clone git@github.com:BertVos-79/kr8cht-study-choice-mtr.git
+
+cd kr8cht-study-choice-mtr
 ```
 
 ---
@@ -66,17 +65,17 @@ cd kr8cht_review_anonymous*/
 ### Option A (recommended): one command from the spec
 
 ```bash
-conda env create -n kr8cht_review_anonymous -f envs/environment.yml
-conda activate kr8cht_review_anonymous
-python -m ipykernel install --user   --name=kr8cht_review_anonymous   --display-name "kr8cht_review_anonymous"
+conda env create -n kr8cht-study-choice-mtr -f envs/environment.yml
+conda activate kr8cht-study-choice-mtr
+python -m ipykernel install --user   --name=kr8cht-study-choice-mtr   --display-name "kr8cht-study-choice-mtr"
 ```
 
 ### Option B: GPU/CUDA (optional)
 
 ```bash
-conda env create -n kr8cht_review_anonymous -f envs/environment.cuda.yml
-conda activate kr8cht_review_anonymous
-python -m ipykernel install --user   --name=kr8cht_review_anonymous   --display-name "kr8cht_review_anonymous"
+conda env create -n kr8cht-study-choice-mtr -f envs/environment.cuda.yml
+conda activate kr8cht-study-choice-mtr
+python -m ipykernel install --user   --name=kr8cht-study-choice-mtr   --display-name "kr8cht-study-choice-mtr"
 ```
 
 > If the solver proposes updates/downgrades, accept them—the spec pins the study versions.
@@ -89,7 +88,7 @@ python -m ipykernel install --user   --name=kr8cht_review_anonymous   --display-
 jupyter lab
 ```
 
-In each notebook, select the **kr8cht_review_anonymous** kernel.
+In each notebook, select the **kr8cht-study-choice-mtr** kernel.
 
 ---
 
@@ -101,7 +100,7 @@ You can either (A) run notebooks interactively, (B) run them in batch, or (C) us
 
 1. Open `notebooks/` in JupyterLab.  
 2. For each notebook (`a_static.ipynb` … `f_6_target_analysis.ipynb`):
-   - Ensure the **kr8cht_review_anonymous** kernel is selected.
+   - Ensure the **kr8cht-study-choice-mtr** kernel is selected.
    - `Run → Run All Cells`.
 
 Figures/tables will be written under `outputs/` (final paper assets under `outputs/f_final_report/`).
@@ -140,17 +139,17 @@ This script only calls plotting/statistics steps that read from `outputs/` and *
 
 - **Kernel not visible:**  
   ```bash
-  conda activate kr8cht_review_anonymous
-  python -m ipykernel install --user     --name=kr8cht_review_anonymous     --display-name "kr8cht_review_anonymous"
+  conda activate kr8cht-study-choice-mtr
+  python -m ipykernel install --user     --name=kr8cht-study-choice-mtr     --display-name "kr8cht-study-choice-mtr"
   ```
 
 - **Solver conflicts:**  
   ```bash
   conda update -n base -c defaults conda -y
-  conda env update -n kr8cht_review_anonymous -f envs/environment.yml
+  conda env update -n kr8cht-study-choice-mtr -f envs/environment.yml
   ```
 
-- **GPU/MPS/CUDA warnings:** Safe to ignore for CPU review.
+- **GPU/MPS/CUDA warnings:** Safe to ignore for CPU when reproducing from committed artifacts on CPU.
 
 Please include OS, `conda --version`, and `conda list` (within the env) if reporting issues.
 

@@ -1,8 +1,9 @@
 # MODEL CARDS (Repository-wide)
 
-> **Status:** anonymized for peer review. No datasets or model weights are distributed. This document
-> summarizes *how* the models in the repo are built and evaluated, together with scope and limitations.
-> Replace “Contact” and any placeholder fields after acceptance.
+> **Status:** public release accompanying the ACM/SIGAPP Symposium on Applied Computing (SAC 2026), 
+> Artificial Intelligence for Education (AIED) track. No private datasets or model weights are 
+> distributed. This document summarizes *how* the models in the repo are built and evaluated, 
+> together with scope and limitations.
 
 ---
 
@@ -81,7 +82,7 @@ We experiment with LoRA adapters on three sentence encoders: `sbert_bert`, `simc
 Adapters target attention projections; ~80% of lower encoder layers are frozen; a linear **14‑d regression head** is added.
 Training uses small grids over learning rate with early stopping; evaluation by LOOCV (precomputed artifacts).
 
-- **Checkpoints:** not distributed. Only summary metrics are provided under `outputs/` to enable review.  
+- **Checkpoints:** not distributed. Summary metrics are provided under `outputs/` to enable review.  
 - **Intended use:** research comparison against frozen‑embedding + MTR baselines in tiny‑data settings.  
 - **Caveat:** with 95 train instances per fold, PEFT can underperform simpler MTR baselines.
 
@@ -90,7 +91,7 @@ Training uses small grids over learning rate with early stopping; evaluation by 
 ## 4) LLM for Synthetic Text Generation (augmentation)
 
 - **Model (local, via Ollama):** `gemma2:9b-instruct-q4_0`  
-- **Use:** to generate candidate Dutch activity sentences under taxonomy‑guided prompting; **no model weights or generated text are distributed**.  
+- **Use:** to generate candidate Dutch activity sentences under taxonomy‑guided prompting; **no model weights or generated text are distributed**. Candidate pools and selected outputs used in analyses are included as artifacts (see `outputs/e_1_synth_augmentation/**`).
 - **Labeling:** teacher–student pseudo‑labeling with the best MTR as teacher; students are retrained on augmented data within each CV fold (no leakage).
 - **Diversity metric & outputs.** For augmentation analyses we compute diversity as the average \(1 - \cos\) distance in the **E5** embedding space between seed and augmented sentences.
 
@@ -124,8 +125,11 @@ Training uses small grids over learning rate with early stopping; evaluation by 
 
 ## 8) Maintenance, Versioning, Contact
 
-- **Version:** `v0.1.0-anon` (for review).  
-- **Changelog:** initial public review package.  
-- **Contact:** to be added after anonymous review.  
-- **Citation:** see `CITATION.cff` (placeholder during review).
+- **Changelog:** initial public release accompanying SAC 2026 (AIED track).  
+- **Contact:**  
+  - Bert Vos — LT3 — Language and Translation Technology Team, Department of Translation, Interpreting and Communication, Ghent University, Ghent, Belgium — bert.vos@ugent.be  
+  - Felipe Kenji Nakano — ITEC, imec research group at KU Leuven; Department of Public Health and Primary Care, KU Leuven, Campus Kulak, Kortrijk, Belgium — felipekenji.nakano@kuleuven.be  
+  - Céline Vens — ITEC, imec research group at KU Leuven; Department of Public Health and Primary Care, KU Leuven, Campus Kulak, Kortrijk, Belgium — celine.vens@kuleuven.be  
+  - Alireza Gharahighehi — ITEC, imec research group at KU Leuven; Department of Public Health and Primary Care, KU Leuven, Campus Kulak, Kortrijk, Belgium — alireza.gharahighehi@kuleuven.be  
+- **Citation:** see `CITATION.cff` (will be updated with DOI and proceedings URL upon publication).
 
