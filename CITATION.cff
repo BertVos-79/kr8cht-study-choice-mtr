@@ -5,7 +5,7 @@ message: >-
   placeholders once available.
 title: "Investigating study choice in Flemish Schools: An application of multi-target regression and large language models"
 type: software
-version: 1.0.0
+version: "v1.0.0"
 date-released: 2025-12-04
 authors:
   - given-names: "Bert"
@@ -26,6 +26,7 @@ authors:
     email: "alireza.gharahighehi@kuleuven.be"
 license: Apache-2.0
 repository-code: "https://github.com/BertVos-79/kr8cht-study-choice-mtr"
+url: "https://doi.org/10.5281/zenodo.17834064"
 preferred-citation:
   type: conference-paper
   title: "Investigating study choice in Flemish Schools: An application of multi-target regression and large language models"
@@ -38,7 +39,7 @@ preferred-citation:
       family-names: "Vens"
     - given-names: "Alireza"
       family-names: "Gharahighehi"
-  collection-title: "Proceedings of the 41st ACM/SIGAPP Symposium on Applied Computing (SAC '26)"
+  collection-title: "Proceedings of the 41st ACM Symposium on Applied Computing (SAC '26)"
   conference: "Artificial Intelligence for Education (AIED) track, Thessaloniki, Greece, March 23–27, 2026"
   publisher: "ACM"
   year: 2026
