@@ -326,7 +326,7 @@ Each corresponding notebook in `notebooks/` regenerates the figures/tables from 
 
 ## 14. Contact
 
-- Bert Vos — Department of Translation, Interpreting and Communication, LT3 — Language and Translation Technology Team, Ghent University, Ghent, Belgium — bert.vos@ugent.be
+- Bert Vos — Faculty of Arts and Philosophy, Department of Linguistics, Ghent University, Ghent, Belgium — bert.vos@ugent.be
 - Felipe Kenji Nakano — ITEC, imec research group at KU Leuven; Department of Public Health and Primary Care, KU Leuven, Campus Kulak, Kortrijk, Belgium — felipekenji.nakano@kuleuven.be
 - Céline Vens — ITEC, imec research group at KU Leuven; Department of Public Health and Primary Care, KU Leuven, Campus Kulak, Kortrijk, Belgium — celine.vens@kuleuven.be
 - Alireza Gharahighehi — ITEC, imec research group at KU Leuven; Department of Public Health and Primary Care, KU Leuven, Campus Kulak, Kortrijk, Belgium — alireza.gharahighehi@kuleuven.be
